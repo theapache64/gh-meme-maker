@@ -1,6 +1,6 @@
-package com.theapache64.ghmm.core.text
+package com.theapache64.ghmm.util.text
 
-import com.theapache64.ghmm.core.text.TextFormat.isEnabled
+import com.theapache64.ghmm.util.text.TextFormat.isEnabled
 import java.awt.*
 import java.awt.font.FontRenderContext
 import java.awt.font.LineBreakMeasurer

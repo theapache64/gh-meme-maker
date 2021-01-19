@@ -1,9 +1,9 @@
 package com.theapache64.ghmm.templates.drake
 
 import com.theapache64.ghmm.core.MemeTemplate
-import com.theapache64.ghmm.core.text.TextAlignment
-import com.theapache64.ghmm.core.text.TextFormat
-import com.theapache64.ghmm.core.text.TextRenderer
+import com.theapache64.ghmm.util.text.TextAlignment
+import com.theapache64.ghmm.util.text.TextFormat
+import com.theapache64.ghmm.util.text.TextRenderer
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.awt.*
@@ -29,7 +29,7 @@ class DrakeMemeTemplate(
 
     override fun onCanvasReady(canvas: Graphics2D, jsonStringData: String) {
         val drakeData: DrakeData = Json.decodeFromString(jsonStringData)
-        val font = fontImpact.deriveFont(Font.PLAIN, 60f)
+        val font = fontImpact.deriveFont(Font.PLAIN, drakeData.fontSize)
 
         val text1Bounds = Rectangle(500, 0, 500, 500)
         draw(canvas, font, drakeData.text1, text1Bounds)

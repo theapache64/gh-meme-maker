@@ -1,4 +1,4 @@
-package com.theapache64.ghmm.core.text
+package com.theapache64.ghmm.util.text
 
 /**
  * An enumerator which indicates where text should be positioned.

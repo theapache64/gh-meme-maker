@@ -1,4 +1,4 @@
-package com.theapache64.ghmm.core.text
+package com.theapache64.ghmm.util.text
 
 /**
  * A class which provides formatting flags for use when rendering text.
