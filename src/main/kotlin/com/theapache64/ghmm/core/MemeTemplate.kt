@@ -86,5 +86,5 @@ abstract class MemeTemplate<T>(
 
     abstract fun decodeJson(jsonStringData: String): T
 
-    abstract fun getTextCoordinates(t: T): List<Pair<String, Rectangle>>
+    abstract fun getTextCoordinates(data: T): List<Pair<String, Rectangle>>
 }

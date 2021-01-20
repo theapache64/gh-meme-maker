@@ -26,10 +26,10 @@ class DrakeMemeTemplate(
         return JsonUtils.json.decodeFromString(jsonStringData)
     }
 
-    override fun getTextCoordinates(drakeData: DrakeData): List<Pair<String, Rectangle>> {
+    override fun getTextCoordinates(data: DrakeData): List<Pair<String, Rectangle>> {
         return mutableListOf(
-            drakeData.text1 to Rectangle(500, 0, 500, 500),
-            drakeData.text2 to Rectangle(500, 500, 500, 500)
+            data.text1 to Rectangle(500, 0, 500, 500),
+            data.text2 to Rectangle(500, 500, 500, 500)
         )
     }
 }
