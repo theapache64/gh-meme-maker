@@ -53,7 +53,7 @@ abstract class MemeTemplate(
             "_${System.nanoTime()}"
         }
         val temporaryImageFile =
-            File("storage/${templateImageFile.nameWithoutExtension}${uniqueText}.${templateImageFile.extension}")
+            File("temp/${templateImageFile.nameWithoutExtension}${uniqueText}.${templateImageFile.extension}")
         templateImageFile.copyTo(temporaryImageFile, overwrite = true)
         return temporaryImageFile
     }
