@@ -13,9 +13,9 @@ jobs:
 
     steps:
       - name: Get latest repo
-        uses: actions/checkout@v2
-          with:
-            fetch-depth: 0
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Generating meme...
         run: |
           java -jar gh-meme-maker.main.jar --issue-number "${{github.event.issue.number}}" --comment-id "${{github.event.comment.id}}"
