@@ -20,7 +20,6 @@ jobs:
         run: |
           git config --local user.email "theapache64bot@gmail.com"
           git config --local user.name "theapache64-bot"
-          git checkout master
           java -jar gh-meme-maker.main.jar --issue-number "${{github.event.issue.number}}" --comment-id "${{github.event.comment.id}}"
           [ -f temp/* ] && mv temp/* . && rm -R temp && git checkout storage && git add -A && git commit -m "🚀 Host new meme"
         env:
