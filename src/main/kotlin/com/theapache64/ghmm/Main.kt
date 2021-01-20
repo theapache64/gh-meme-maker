@@ -15,6 +15,8 @@ private val requestReceivedReplies = listOf(
     "Copy that. Hold on a minute"
 )
 
+private const val SIGNATURE = "%$#%JHH%%$#@GJH%$%JGH&^%"
+
 fun main(args: Array<String>) {
     println("Generating meme : [${args.joinToString(",")}]")
 
@@ -40,7 +42,7 @@ fun main(args: Array<String>) {
         )
 
         if (body != null) {
-            if (body.contains("```json")) {
+            if (body.contains("```json") && !body.contains(SIGNATURE)) {
 
                 // Sending 'Please wait' message
                 GitHubManager.createComment(
@@ -73,6 +75,9 @@ fun main(args: Array<String>) {
                         %s
                         ```
                         ````
+                        <!--
+                        $SIGNATURE
+                        -->
                     """.trimIndent(), bodyJson
                     )
 
@@ -86,7 +91,7 @@ fun main(args: Array<String>) {
                 } else {
                     error("Invalid template id ${bodyModel.templateId}")
                 }
-            }else{
+            } else {
                 println("It's not a generate command. Skipping call.")
                 exitProcess(0)
             }

@@ -23,3 +23,8 @@ text_2 = Drake Approves
   "text_2": "TEXT 2 GOES HERE"
 }
 ```
+
+<!-- 
+Once you created the issue...
+ -->
+*Click the '[Actions](https://github.com/theapache64/gh-meme-maker/actions)' tab to see the kitchen*
