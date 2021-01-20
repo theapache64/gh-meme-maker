@@ -18,11 +18,12 @@ jobs:
           fetch-depth: 0
       - name: Generating meme...
         run: |
-          java -jar gh-meme-maker.main.jar --issue-number "${{github.event.issue.number}}" --comment-id "${{github.event.comment.id}}"
           git config --local user.email "theapache64bot@gmail.com"
           git config --local user.name "theapache64-bot"
+          git checkout master
+          java -jar gh-meme-maker.main.jar --issue-number "${{github.event.issue.number}}" --comment-id "${{github.event.comment.id}}"
           git checkout storage
-          mv temp/* .
+          [ -f temp/* ] && mv temp/* .
           rm -R temp
           git add -A
           git commit -m "🚀 Host new meme"
