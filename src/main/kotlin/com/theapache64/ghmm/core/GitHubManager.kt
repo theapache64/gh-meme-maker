@@ -24,11 +24,11 @@ object GitHubManager {
             getIssueBody(issueNumber)
         } else {
             // It's a new comment
-            getCommentBody(issueNumber, commentId)
+            getCommentBody(commentId)
         }
     }
 
-    private fun getCommentBody(issueNumber: Long, commentId: Long): String? {
+    private fun getCommentBody(commentId: Long): String? {
         val request = Request.Builder()
             .addHeader("Accept", "application/vnd.github.v3+json")
             .url("https://api.github.com/repos/$REPO/issues/comments/$commentId")
@@ -49,7 +49,7 @@ object GitHubManager {
             .body
     }
 
-    fun createComment(body: String, issueNumber: Long, commentId: Long?) {
+    fun createComment(body: String, issueNumber: Long) {
         github.getRepository(REPO)
             .getIssue(issueNumber.toInt())
             .comment(body)

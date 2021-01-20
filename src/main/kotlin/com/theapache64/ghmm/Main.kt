@@ -5,7 +5,13 @@ import com.theapache64.ghmm.core.TemplateManager
 import com.theapache64.ghmm.templates.BaseData
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import org.kohsuke.github.GitHub
+import java.lang.Exception
+
+private val requestReceivedReplies = listOf(
+    "Alrightyyy!! Let me generate it...",
+    "Roger that! Hold on please",
+    "Copy that. Hold on a second"
+)
 
 fun main(args: Array<String>) {
 
@@ -18,43 +24,55 @@ fun main(args: Array<String>) {
         }
     }
 
-    val body = GitHubManager.getBody(
-        issueNumber,
-        commentId
-    )
+    try {
+        val body = GitHubManager.getBody(
+            issueNumber,
+            commentId
+        )
 
-    if (body != null) {
-        val bodyJson = parseJsonFrom(body)
-        val bodyModel: BaseData = Json {
-            ignoreUnknownKeys = true
-        }.decodeFromString(bodyJson)
+        if (body != null) {
+            if (body.startsWith("```json")) {
 
-        if (args.size == 4) {
-
-            // Asking manager to provide correct template
-            val template = TemplateManager.getTemplate(bodyModel.templateId)
-
-            if (template != null) {
-
-                // Asking template to generate meme
-                println("Template: ${template::class.java.simpleName}")
-                val imageFile = template.generate(bodyJson)
-
+                // Sending 'Please wait' message
                 GitHubManager.createComment(
-                    """
-                        ![](https://raw.githubusercontent.com/theapache64/gh-meme-maker/storage/${imageFile.name})
-                    """.trimIndent(),
-                    issueNumber,
-                    commentId
+                    requestReceivedReplies.random(),
+                    issueNumber
                 )
-            } else {
-                error("Invalid template id ${bodyModel.templateId}")
+
+                val bodyJson = parseJsonFrom(body)
+                val bodyModel: BaseData = Json {
+                    ignoreUnknownKeys = true
+                }.decodeFromString(bodyJson)
+
+                // Asking manager to provide correct template
+                val template = TemplateManager.getTemplate(bodyModel.templateId)
+
+                if (template != null) {
+
+                    // Asking template to generate meme
+                    println("Template: ${template::class.java.simpleName}")
+                    val imageFile = template.generate(bodyJson)
+
+                    GitHubManager.createComment(
+                        """
+                        <img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/storage/${imageFile.name}" width="300"/>
+                    """.trimIndent(),
+                        issueNumber
+                    )
+                } else {
+                    error("Invalid template id ${bodyModel.templateId}")
+                }
             }
         } else {
-            error("Invalid argument size '${args.size}'")
+            error("Invalid issue/comment : IssueNum-> '$issueNumber', CommentId: '$commentId'")
         }
-    } else {
-        error("Invalid issue/comment : IssueNum-> '$issueNumber', CommentId: '$commentId'")
+    } catch (e: Exception) {
+        e.printStackTrace()
+        GitHubManager.createComment(
+            e.message ?: "Something went wrong",
+            issueNumber
+        )
+        throw e
     }
 }
 
