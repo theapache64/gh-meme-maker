@@ -6,11 +6,15 @@ import javax.imageio.ImageIO
 
 fun main(args: Array<String>) {
 
-    val issueId = args[0]
-    val commentId = args[1]
+    val issueId = args[1]
+    val commentId = args[3]
 
-    println("IssueId : $issueId")
+    println("IssueNumber : $issueId")
     println("CommentId : $commentId")
+
+    if (true) {
+        return
+    }
 
     if (args.size == 4) {
 
