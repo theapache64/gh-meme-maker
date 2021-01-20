@@ -1,7 +1,6 @@
 package com.theapache64.ghmm.templates.mask
 
 import com.theapache64.expekt.should
-import com.theapache64.ghmm.templates.drake.DrakeMemeTemplate
 import org.junit.Test
 
 
