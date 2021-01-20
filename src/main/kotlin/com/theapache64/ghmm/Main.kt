@@ -58,9 +58,9 @@ fun main(args: Array<String>) {
                     val imageFile = template.generate(bodyJson)
 
                     GitHubManager.createComment(
-                        """Here is it 😜, 
+                        """Here is it 😜,
+                             
                         <img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/storage/${imageFile.name}" width="300"/>
-                        
                         
                     """.trimIndent(),
                         issueNumber
