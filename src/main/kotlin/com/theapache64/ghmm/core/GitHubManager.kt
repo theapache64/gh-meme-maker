@@ -8,6 +8,9 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.kohsuke.github.GitHubBuilder
 
+/**
+ * To manage all GitHub operations
+ */
 object GitHubManager {
     private const val REPO = "theapache64/gh-meme-maker"
 
@@ -19,6 +22,9 @@ object GitHubManager {
         GitHubBuilder.fromEnvironment().build()
     }
 
+    /**
+     * To get comment body of an issue/comment
+     */
     fun getBody(issueNumber: Long, commentId: Long?): String? {
         return if (commentId == null) {
             // It's a new issue
@@ -29,7 +35,12 @@ object GitHubManager {
         }
     }
 
+    /**
+     * To get comment body from commentId
+     */
     private fun getCommentBody(commentId: Long): String? {
+
+        // Not using GitHub Java API, because its slow.
         val request = Request.Builder()
             .addHeader("Accept", "application/vnd.github.v3+json")
             .url("https://api.github.com/repos/$REPO/issues/comments/$commentId")
@@ -42,12 +53,18 @@ object GitHubManager {
         return null
     }
 
+    /**
+     * To get issue body from issueNumber
+     */
     private fun getIssueBody(issueNumber: Long): String {
         return github.getRepository(REPO)
             .getIssue(issueNumber.toInt())
             .body
     }
 
+    /**
+     * To create a new comment in the given issue
+     */
     fun createComment(body: String, issueNumber: Long) {
         github.getRepository(REPO)
             .getIssue(issueNumber.toInt())

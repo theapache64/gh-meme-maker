@@ -18,6 +18,7 @@ private val requestReceivedReplies = listOf(
 fun main(args: Array<String>) {
     println("Generating meme : [${args.joinToString(",")}]")
 
+    // Getting input from arguments
     val issueNumber = args[1].toLong()
     val commentId = args[3].let { arg3 ->
         if (arg3.isBlank()) {
@@ -31,6 +32,8 @@ fun main(args: Array<String>) {
     println("Comment ID : `$commentId`")
 
     try {
+
+        // Getting issue/comment body
         val body = GitHubManager.getBody(
             issueNumber,
             commentId
@@ -70,17 +73,19 @@ fun main(args: Array<String>) {
                         ````
                     """.trimIndent(), body
                     )
+
+                    // Creating comment
                     GitHubManager.createComment(
                         comment,
                         issueNumber
                     )
-                    println()
+
                     println("Done!")
                 } else {
                     error("Invalid template id ${bodyModel.templateId}")
                 }
             }else{
-                println("It's not a gen command. Skipping call.")
+                println("It's not a generate command. Skipping call.")
                 exitProcess(0)
             }
         } else {
