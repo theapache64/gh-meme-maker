@@ -13,7 +13,9 @@ jobs:
 
     steps:
       - name: Get latest repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
       - name: Generating meme...
         run: |
           java -jar gh-meme-maker.main.jar --issue-number "${{github.event.issue.number}}" --comment-id "${{github.event.comment.id}}"
@@ -26,5 +28,5 @@ jobs:
       - name: Hosting meme...
         uses: ad-m/github-push-action@master
         with:
-         github_token: ${{ secrets.THE_GITHUB_ACCESS_TOKEN }}
-         branch: storage
+          github_token: ${{ secrets.THE_GITHUB_ACCESS_TOKEN }}
+          branch: storage
