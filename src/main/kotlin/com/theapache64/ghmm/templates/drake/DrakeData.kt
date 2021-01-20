@@ -11,5 +11,5 @@ class DrakeData(
     @SerialName("text_2")
     val text2: String, // Hilt
     @SerialName("font_size")
-    val fontSize: Float = 60f,
+    val fontSize: Float = 80f,
 )

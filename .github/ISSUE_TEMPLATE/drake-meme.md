@@ -15,12 +15,14 @@ assignees: theapache64-bot
 <!-- 
 text_1 = Drake Disapproves
 text_2 = Drake Approves
+font_size = Font size (both text_1 and text_2)
  -->
 ```json
 {
   "template_id": "drake-meme",
   "text_1": "TEXT 1 GOES HERE",
-  "text_2": "TEXT 2 GOES HERE"
+  "text_2": "TEXT 2 GOES HERE",
+  "font_size": 80
 }
 ```
 

@@ -44,7 +44,7 @@ class DrakeMemeTemplate(
             canvas,
             text1,
             font,
-            Color.BLACK,
+            Color.decode("#121212"),
             text1Bounds,
             TextAlignment.MIDDLE,
             TextFormat.FIRST_LINE_VISIBLE
