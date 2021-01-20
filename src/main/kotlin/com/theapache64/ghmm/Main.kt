@@ -69,9 +69,11 @@ fun main(args: Array<String>) {
                         
                         Didn't like the output? Don't worry, copy paste below JSON with updated values. I can make a new one.
                         ````json
+                        ```json
                         %s
+                        ```
                         ````
-                    """.trimIndent(), body
+                    """.trimIndent(), bodyJson
                     )
 
                     // Creating comment
