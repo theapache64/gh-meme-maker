@@ -1,6 +1,7 @@
 package com.theapache64.ghmm.core
 
 import com.theapache64.ghmm.model.GithubIssueComment
+import com.theapache64.ghmm.util.JsonUtils
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
@@ -36,9 +37,7 @@ object GitHubManager {
 
         val resp = okHttpClient.newCall(request).execute().body?.string()
         if (resp != null) {
-            return Json {
-                ignoreUnknownKeys = true
-            }.decodeFromString<GithubIssueComment>(resp).body
+            return JsonUtils.json.decodeFromString<GithubIssueComment>(resp).body
         }
         return null
     }

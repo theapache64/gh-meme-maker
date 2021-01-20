@@ -3,6 +3,7 @@ package com.theapache64.ghmm
 import com.theapache64.ghmm.core.GitHubManager
 import com.theapache64.ghmm.core.TemplateManager
 import com.theapache64.ghmm.templates.BaseData
+import com.theapache64.ghmm.util.JsonUtils
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.lang.Exception
@@ -43,10 +44,8 @@ fun main(args: Array<String>) {
                     issueNumber
                 )
 
-                val bodyJson = parseJsonFrom(body)
-                val bodyModel: BaseData = Json {
-                    ignoreUnknownKeys = true
-                }.decodeFromString(bodyJson)
+                val bodyJson = parseJsonFromMarkdownIssueBody(body)
+                val bodyModel: BaseData = JsonUtils.json.decodeFromString(bodyJson)
 
                 // Asking manager to provide correct template
                 val template = TemplateManager.getTemplate(bodyModel.templateId)
@@ -91,7 +90,7 @@ fun main(args: Array<String>) {
     }
 }
 
-fun parseJsonFrom(body: String): String {
+fun parseJsonFromMarkdownIssueBody(body: String): String {
     body.split("```json")[1].let { x ->
         return x.substring(0, x.lastIndexOf("```"))
     }
