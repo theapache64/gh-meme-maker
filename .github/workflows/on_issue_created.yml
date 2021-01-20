@@ -15,6 +15,6 @@ jobs:
       - name: Get latest repo
         uses: actions/checkout@master
       - name: Get JAR
-        run: java -jar gh-meme-maker.main.jar "${{github.event.issue.id}}" "${{github.event.comment.id}}"
+        run: java -jar gh-meme-maker.main.jar --issue-number "${{github.event.issue.number}}" --comment-id "${{github.event.comment.id}}"
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.THE_GITHUB_ACCESS_TOKEN }}

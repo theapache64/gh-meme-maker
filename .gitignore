@@ -147,6 +147,6 @@ gradle-app.setting
 
 ### Gradle Patch ###
 **/build/
-temp/
+storage/
 
 # End of https://www.toptal.com/developers/gitignore/api/kotlin,intellij,gradle
