@@ -56,15 +56,22 @@ fun main(args: Array<String>) {
                     // Asking template to generate meme
                     println("Template: ${template::class.java.simpleName}")
                     val imageFile = template.generate(bodyJson)
-
-                    GitHubManager.createComment(
-                        """Here is it 😜,
-                             
+                    val comment = String.format(
+                        """
+                        Here is it ;)
+                        
                         <img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/storage/${imageFile.name}" width="300"/>
                         
-                    """.trimIndent(),
+                        ````json
+                        %s
+                        ````
+                    """.trimIndent(), body
+                    )
+                    GitHubManager.createComment(
+                        comment,
                         issueNumber
                     )
+                    println()
                     println("Done!")
                 } else {
                     error("Invalid template id ${bodyModel.templateId}")
