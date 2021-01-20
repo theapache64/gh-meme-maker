@@ -8,7 +8,7 @@ object TemplateManager {
         // add as many templates as you want
     )
 
-    fun getTemplate(id: Int): MemeTemplate? {
+    fun getTemplate(id: String): MemeTemplate? {
         return memeTemplates.find { it.getId() == id }
     }
 }

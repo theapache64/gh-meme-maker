@@ -22,9 +22,11 @@ jobs:
           git config --local user.email "theapache64bot@gmail.com"
           git config --local user.name "theapache64-bot"
           git checkout storage
+          mv temp/* .
+          rm -R temp
           git commit -m "🚀 Host new meme" -a
         env:
-          GITHUB_ACCESS_TOKEN: ${{ secrets.THE_GITHUB_ACCESS_TOKEN }}
+          GITHUB_OAUTH: ${{ secrets.THE_GITHUB_ACCESS_TOKEN }}
       - name: Hosting meme...
         uses: ad-m/github-push-action@master
         with:

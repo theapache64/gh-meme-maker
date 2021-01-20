@@ -1,40 +1,66 @@
 package com.theapache64.ghmm
 
+import com.theapache64.ghmm.core.GitHubManager
 import com.theapache64.ghmm.core.TemplateManager
-import java.io.File
-import javax.imageio.ImageIO
+import com.theapache64.ghmm.templates.BaseData
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+import org.kohsuke.github.GitHub
 
 fun main(args: Array<String>) {
 
-    val issueId = args[1]
-    val commentId = args[3]
-
-    println("IssueNumber : $issueId")
-    println("CommentId : $commentId")
-
-    if (true) {
-        return
+    val issueNumber = args[1].toLong()
+    val commentId = args[3].let { arg3 ->
+        if (arg3.isBlank()) {
+            null
+        } else {
+            arg3.toLong()
+        }
     }
 
-    if (args.size == 4) {
+    val body = GitHubManager.getBody(
+        issueNumber,
+        commentId
+    )
 
-        // Reading templateId and data
-        val templateId = args[1].toInt()
-        val data = args[3]
+    if (body != null) {
+        val bodyJson = parseJsonFrom(body)
+        val bodyModel: BaseData = Json {
+            ignoreUnknownKeys = true
+        }.decodeFromString(bodyJson)
 
-        // Asking manager to provide correct template
-        val template = TemplateManager.getTemplate(templateId)
+        if (args.size == 4) {
 
-        if (template != null) {
+            // Asking manager to provide correct template
+            val template = TemplateManager.getTemplate(bodyModel.templateId)
 
-            // Asking template to generate meme
-            println("Template: ${template::class.java.simpleName}")
-            val imageFile = template.generate(data)
+            if (template != null) {
+
+                // Asking template to generate meme
+                println("Template: ${template::class.java.simpleName}")
+                val imageFile = template.generate(bodyJson)
+
+                GitHubManager.createComment(
+                    """
+                        ![](https://raw.githubusercontent.com/theapache64/gh-meme-maker/storage/${imageFile.name})
+                    """.trimIndent(),
+                    issueNumber,
+                    commentId
+                )
+            } else {
+                error("Invalid template id ${bodyModel.templateId}")
+            }
         } else {
-            error("Invalid template id $templateId")
+            error("Invalid argument size '${args.size}'")
         }
     } else {
-        error("Invalid argument size '${args.size}'")
+        error("Invalid issue/comment : IssueNum-> '$issueNumber', CommentId: '$commentId'")
+    }
+}
+
+fun parseJsonFrom(body: String): String {
+    body.split("```json")[1].let { x ->
+        return x.substring(0, x.lastIndexOf("```"))
     }
 }
 

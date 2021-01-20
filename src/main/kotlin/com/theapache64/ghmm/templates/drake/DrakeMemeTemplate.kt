@@ -19,8 +19,8 @@ class DrakeMemeTemplate(
         }
     }
 
-    override fun getId(): Int {
-        return 1
+    override fun getId(): String {
+        return "drake-meme"
     }
 
     override fun getTemplateImageName(): String {
@@ -28,7 +28,9 @@ class DrakeMemeTemplate(
     }
 
     override fun onCanvasReady(canvas: Graphics2D, jsonStringData: String) {
-        val drakeData: DrakeData = Json.decodeFromString(jsonStringData)
+        val drakeData: DrakeData = Json {
+            ignoreUnknownKeys = true
+        }.decodeFromString(jsonStringData)
         val font = fontImpact.deriveFont(Font.PLAIN, drakeData.fontSize)
 
         val text1Bounds = Rectangle(500, 0, 500, 500)

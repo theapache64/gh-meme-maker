@@ -11,7 +11,7 @@ import javax.imageio.ImageIO
 abstract class MemeTemplate(
     private val isDebug: Boolean
 ) {
-    abstract fun getId(): Int
+    abstract fun getId(): String
     abstract fun getTemplateImageName(): String
 
     fun generate(jsonStringData: String): File {

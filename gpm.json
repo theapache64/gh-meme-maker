@@ -27,6 +27,35 @@
     "name": "Expekt",
     "description": "An assertion library for Kotlin"
    }
+  },
+  {
+   "id": 3,
+   "type": "implementation",
+   "installed_name": "github-api",
+   "gpm_dep": {
+    "artifact_id": "github-api",
+    "default_type": "implementation",
+    "docs": "https://mvnrepository.com/artifact/org.kohsuke/github-api",
+    "get_from": "Central",
+    "group_id": "org.kohsuke",
+    "name": "GitHub API For Java",
+    "description": "GitHub API for Java"
+   }
+  },
+  {
+   "id": 4,
+   "type": "implementation",
+   "installed_name": "okhttp",
+   "gpm_dep": {
+    "artifact_id": "okhttp",
+    "default_type": "implementation",
+    "docs": "https://square.github.io/okhttp/",
+    "get_from": "maven",
+    "github": "square/okhttp",
+    "group_id": "com.squareup.okhttp3",
+    "name": "OkHttp",
+    "description": "For networking"
+   }
   }
  ]
 }
