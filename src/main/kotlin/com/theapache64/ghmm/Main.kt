@@ -40,7 +40,7 @@ fun main(args: Array<String>) {
         )
 
         if (body != null) {
-            if (body.startsWith("```json")) {
+            if (body.contains("```json")) {
 
                 // Sending 'Please wait' message
                 GitHubManager.createComment(
