@@ -15,7 +15,7 @@ private val requestReceivedReplies = listOf(
     "Copy that. Hold on a minute"
 )
 
-private const val SIGNATURE = "%$#%JHH%%$#@GJH%$%JGH&^%"
+private const val SIGNATURE = "GjhgJHGJHGjHGjhgjGJ4545JjHGjhgjhg"
 
 fun main(args: Array<String>) {
     println("Generating meme : [${args.joinToString(",")}]")
