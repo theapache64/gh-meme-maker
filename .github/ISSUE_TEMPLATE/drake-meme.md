@@ -20,8 +20,8 @@ font_size = Font size (both text_1 and text_2)
 ```json
 {
   "template_id": "drake-meme",
-  "text_1": "TEXT 1 GOES HERE",
-  "text_2": "TEXT 2 GOES HERE",
+  "text_1": "TEXT_1_GOES_HERE",
+  "text_2": "TEXT_2_GOES_HERE",
   "font_size": 80
 }
 ```

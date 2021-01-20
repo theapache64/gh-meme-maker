@@ -8,7 +8,7 @@ import java.awt.Rectangle
 
 class MaskMemeTemplate(isDebug: Boolean = false) : MemeTemplate<MaskData>(isDebug) {
     override fun getId(): String {
-        return "mask"
+        return "mask-meme"
     }
 
     override fun getTemplateImageName(): String {
