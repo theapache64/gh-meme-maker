@@ -6,5 +6,5 @@ import kotlinx.serialization.SerialName
 @Serializable
 data class GithubIssueComment(
     @SerialName("body")
-    val body: String // dfgdfg
+    val body: String
 )
