@@ -23,7 +23,7 @@ It's because the GitHub action trigger goes through a queuing and ignition proce
 
 - **Broken Image!**
 
-After you finish creating your meme request issue or comment, the resulting image might be unavailable for some time. 
+After you finish creating your meme request, the resulting image might be unavailable for some time. 
 This is because we host the image in GitHub itself, and GitHub takes some time to host the file.
 
 *SOLUTION: Move image hosting to external file hosting spaces, such as `S3`. OR Do you have any other solution?*
