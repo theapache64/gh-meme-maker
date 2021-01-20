@@ -2,8 +2,8 @@
 name: Drake Meme
 about: Drake Approves / Disapproves
 title: Drake Meme
-labels: drake-meme
-assignees: ''
+labels: drake-meme, meme
+assignees: 'theapache64-bot'
 
 ---
 

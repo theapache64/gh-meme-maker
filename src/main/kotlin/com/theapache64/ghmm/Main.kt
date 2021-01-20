@@ -62,6 +62,7 @@ fun main(args: Array<String>) {
                         
                         <img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/storage/${imageFile.name}" width="300"/>
                         
+                        Didn't like it? Don't worry. Copy paste below JSON with updated values. I can make a new one.
                         ````json
                         %s
                         ````
