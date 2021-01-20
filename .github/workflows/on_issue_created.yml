@@ -24,7 +24,8 @@ jobs:
           git checkout storage
           mv temp/* .
           rm -R temp
-          git commit -m "🚀 Host new meme" -a
+          git add -A
+          git commit -m "🚀 Host new meme"
         env:
           GITHUB_OAUTH: ${{ secrets.THE_GITHUB_ACCESS_TOKEN }}
       - name: Hosting meme...
