@@ -78,6 +78,7 @@ fun main(args: Array<String>) {
                     error("Invalid template id ${bodyModel.templateId}")
                 }
             }else{
+                println("It's not a gen command. Skipping call.")
                 exitProcess(0)
             }
         } else {

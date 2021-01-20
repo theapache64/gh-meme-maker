@@ -24,6 +24,7 @@ jobs:
           [ -f temp/* ] && mv temp/* . && rm -R temp
           git checkout storage
           git pull --no-edit origin storage
+          echo "${{github.event.issue.number}} -> ${{github.event.comment.id}}" >> log.txt
           git add -A
           git commit -m "🚀 Host new meme"
           echo "All done!"
