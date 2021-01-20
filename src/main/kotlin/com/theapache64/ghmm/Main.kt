@@ -10,10 +10,11 @@ import java.lang.Exception
 private val requestReceivedReplies = listOf(
     "Alrightyyy!! Let me generate it...",
     "Roger that! Hold on please",
-    "Copy that. Hold on a second"
+    "Copy that. Hold on a minute"
 )
 
 fun main(args: Array<String>) {
+    println("Generating meme : [${args.joinToString(",")}]")
 
     val issueNumber = args[1].toLong()
     val commentId = args[3].let { arg3 ->
@@ -23,6 +24,9 @@ fun main(args: Array<String>) {
             arg3.toLong()
         }
     }
+
+    println("Issue Number : `${issueNumber}`")
+    println("Comment ID : `$commentId`")
 
     try {
         val body = GitHubManager.getBody(
@@ -59,6 +63,7 @@ fun main(args: Array<String>) {
                     """.trimIndent(),
                         issueNumber
                     )
+                    println("Done!")
                 } else {
                     error("Invalid template id ${bodyModel.templateId}")
                 }
