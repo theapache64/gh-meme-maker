@@ -7,6 +7,7 @@ import com.theapache64.ghmm.util.text.TextRenderer
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.awt.*
+import java.io.File
 
 class DrakeMemeTemplate(
     isDebug: Boolean = false
@@ -14,8 +15,7 @@ class DrakeMemeTemplate(
 
     companion object {
         private val fontImpact by lazy {
-            val fontRes = DrakeMemeTemplate::class.java.getResourceAsStream("/impact.ttf")
-            Font.createFont(Font.TRUETYPE_FONT, fontRes)
+            Font.createFont(Font.TRUETYPE_FONT, File("impact.ttf"))
         }
     }
 
