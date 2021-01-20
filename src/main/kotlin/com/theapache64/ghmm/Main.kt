@@ -7,6 +7,7 @@ import com.theapache64.ghmm.util.JsonUtils
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.lang.Exception
+import kotlin.system.exitProcess
 
 private val requestReceivedReplies = listOf(
     "Alrightyyy!! Let me generate it...",
@@ -76,6 +77,8 @@ fun main(args: Array<String>) {
                 } else {
                     error("Invalid template id ${bodyModel.templateId}")
                 }
+            }else{
+                exitProcess(0)
             }
         } else {
             error("Invalid issue/comment : IssueNum-> '$issueNumber', CommentId: '$commentId'")
