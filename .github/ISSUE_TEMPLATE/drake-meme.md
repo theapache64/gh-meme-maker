@@ -2,8 +2,8 @@
 name: Drake Meme
 about: Drake Approves / Disapproves
 title: Drake Meme
-labels: drake-meme, meme
-assignees: 'theapache64-bot'
+labels: drake-meme
+assignees: theapache64-bot
 
 ---
 
@@ -23,4 +23,3 @@ text_2 = Drake Approves
   "text_2": "TEXT 2 GOES HERE"
 }
 ```
-
