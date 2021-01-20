@@ -1,6 +1,6 @@
 # gh-meme-maker 🤡
 
-Create memes using GitHub issues
+Generate memes using GitHub issues
 
 ## Choose the template 😎
 
