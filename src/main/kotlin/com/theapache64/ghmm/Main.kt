@@ -6,6 +6,12 @@ import javax.imageio.ImageIO
 
 fun main(args: Array<String>) {
 
+    val issueId = args[0]
+    val commentId = args[1]
+
+    println("IssueId : $issueId")
+    println("CommentId : $commentId")
+
     if (args.size == 4) {
 
         // Reading templateId and data

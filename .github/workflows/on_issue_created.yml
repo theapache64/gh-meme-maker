@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Get latest repo
+        uses: actions/checkout@master
       - name: Get JAR
         run: java -jar gh-meme-maker.main.jar
         env:
