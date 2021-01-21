@@ -7,7 +7,7 @@ import java.awt.Rectangle
 
 class FiremanBurnsMemeTemplate(isDebug: Boolean = false) : MemeTemplate<FiremanBurnsData>(isDebug) {
     override fun getId(): String {
-        return "fireman-burns"
+        return "fireman-burns-meme"
     }
 
     override fun getTemplateImageName(): String {
