@@ -1,6 +1,7 @@
 package com.theapache64.ghmm
 
 import com.theapache64.ghmm.core.GitHubManager
+import com.theapache64.ghmm.core.ImgUr
 import com.theapache64.ghmm.core.TemplateManager
 import com.theapache64.ghmm.templates.BaseData
 import com.theapache64.ghmm.util.JsonUtils
@@ -49,14 +50,19 @@ fun main(args: Array<String>) {
                     // Asking template to generate meme
                     println("Template: ${template::class.java.simpleName}")
                     val imageFile = template.generate(bodyJson)
-                    val comment = String.format(
-                        """
+                    val imageUrl = ImgUr.uploadImage(imageFile)
+
+                    if (imageUrl != null) {
+
+                        // Delete uploaded image
+                        imageFile.delete()
+
+                        val comment = String.format(
+                            """
                         Here is it ;)
                         
-                        <img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/storage/${imageFile.name}" width="300"/>
-                        
-                        > If you're seeing a broken image, come back after a minute. GitHub is hosting your meme...
-                        
+                        <img src="$imageUrl" width="300"/>
+
                         Didn't like the output? Don't worry, copy paste below JSON with updated values. I can make a new one.
                         ````json
                         ```json%s```
@@ -65,15 +71,18 @@ fun main(args: Array<String>) {
                         $SIGNATURE
                         -->
                     """.trimIndent(), bodyJson
-                    )
+                        )
 
-                    // Creating comment
-                    GitHubManager.createComment(
-                        comment,
-                        issueNumber
-                    )
+                        // Creating comment
+                        GitHubManager.createComment(
+                            comment,
+                            issueNumber
+                        )
 
-                    println("Done!")
+                        println("Done!")
+                    } else {
+                        error("Failed to upload image to imgUr")
+                    }
                 } else {
                     error("Invalid template id ${bodyModel.templateId}")
                 }
