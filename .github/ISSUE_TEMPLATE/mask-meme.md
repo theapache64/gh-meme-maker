@@ -6,17 +6,8 @@ labels: mask-meme, meme
 assignees: theapache64-bot
 
 ---
-
-**Template**
-
-<img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/master/template_images/mask.jpg" height="250"/>
-
 **Input**
-<!-- 
-mask_text = The text on the mask
-revealed_text = The text when face revealed
-font_size = Font size (both mask_text and revealed_text)
- -->
+
 ```json
 {
   "template_id": "mask-meme",
@@ -25,6 +16,14 @@ font_size = Font size (both mask_text and revealed_text)
   "font_size": 50
 }
 ```
+<!-- 
+mask_text = The text on the mask
+revealed_text = The text when face revealed
+font_size = Font size (both mask_text and revealed_text)
+ -->
+**Template**
+
+<img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/master/template_images/mask.jpg" height="250"/>
 
 <!-- 
 Once you created the issue...

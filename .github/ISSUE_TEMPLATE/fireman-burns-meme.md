@@ -6,16 +6,8 @@ labels: fireman-burns-meme, meme
 assignees: theapache64-bot
 
 ---
-
-**Template**
-
-<img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/master/template_images/fireman_burns.jpg" height="250"/>
-
 **Input**
-<!-- 
-lady_says = The text the lady says
-font_size = Font size of that text
- -->
+
 ```json
 {
   "template_id": "fireman-burns-meme",
@@ -23,6 +15,10 @@ font_size = Font size of that text
   "font_size": 30
 }
 ```
+**Template**
+
+<img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/master/template_images/fireman_burns.jpg" height="250" alt="template"/>
+
 
 <!-- 
 Once you created the issue...

@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 class DrakeData(
-    @SerialName("text_1")
-    var text1: String, // Dagger2
-    @SerialName("text_2")
-    val text2: String, // Hilt
+    @SerialName("drake_hates")
+    var drakeHates: String, // Dagger2
+    @SerialName("drake_loves")
+    val drakeLoves: String, // Hilt
     @SerialName("font_size")
     val fontSize: Float = 80f,
 )
