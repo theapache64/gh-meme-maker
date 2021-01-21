@@ -26,8 +26,8 @@ object TextFormat {
      * @param flag        The flag to find in the format flags
      * @return true if the format flags contains the specific flag; otherwise, false
      */
-	@JvmStatic
-	fun isEnabled(format: Int, flag: Int): Boolean {
+    @JvmStatic
+    fun isEnabled(format: Int, flag: Int): Boolean {
         return format and flag == flag
     }
 }

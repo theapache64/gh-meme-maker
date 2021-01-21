@@ -6,8 +6,6 @@ import com.theapache64.ghmm.core.TemplateManager
 import com.theapache64.ghmm.templates.BaseData
 import com.theapache64.ghmm.util.JsonUtils
 import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
-import java.lang.Exception
 import kotlin.system.exitProcess
 
 private const val SIGNATURE = "GjhgJHGJHGjHGjhgjGJ4545JjHGjhgjhg"

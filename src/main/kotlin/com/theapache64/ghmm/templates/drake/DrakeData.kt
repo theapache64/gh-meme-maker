@@ -1,6 +1,5 @@
 package com.theapache64.ghmm.templates.drake
 
-import com.theapache64.ghmm.templates.BaseData
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

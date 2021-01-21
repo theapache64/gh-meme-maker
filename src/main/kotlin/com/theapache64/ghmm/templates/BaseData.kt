@@ -1,8 +1,7 @@
 package com.theapache64.ghmm.templates
 
-import kotlinx.serialization.Serializable
-
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 
 @Serializable

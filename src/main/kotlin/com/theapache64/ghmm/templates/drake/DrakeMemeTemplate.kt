@@ -3,7 +3,7 @@ package com.theapache64.ghmm.templates.drake
 import com.theapache64.ghmm.core.MemeTemplate
 import com.theapache64.ghmm.util.JsonUtils
 import kotlinx.serialization.decodeFromString
-import java.awt.*
+import java.awt.Rectangle
 
 class DrakeMemeTemplate(
     isDebug: Boolean = false

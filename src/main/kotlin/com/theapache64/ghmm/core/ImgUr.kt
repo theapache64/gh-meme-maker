@@ -3,7 +3,9 @@ package com.theapache64.ghmm.core
 import com.theapache64.ghmm.model.ImgUrSuccessResponse
 import com.theapache64.ghmm.util.JsonUtils
 import kotlinx.serialization.decodeFromString
-import okhttp3.*
+import okhttp3.MultipartBody
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import java.io.File
 import java.util.*
 
