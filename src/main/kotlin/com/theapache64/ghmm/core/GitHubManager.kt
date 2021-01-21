@@ -78,7 +78,7 @@ object GitHubManager {
     /**
      * To create a new comment in the given issue
      */
-    fun createComment(body: String, issueNumber: Long) {
+    fun createComment(body: String, issueNumber: Long): Boolean {
 
         val request = Request.Builder()
             .url("https://api.github.com/repos/$REPO/issues/$issueNumber/comments")
@@ -87,7 +87,7 @@ object GitHubManager {
             .method("POST", "{\"body\":\"$body\"}".toRequestBody(jsonMediaType))
             .build()
 
-        okHttpClient.newCall(request).execute()
+        return okHttpClient.newCall(request).execute().code == 200
     }
 
 }

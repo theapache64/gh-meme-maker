@@ -15,4 +15,13 @@ class GitHubManagerTest {
         GitHubManager.getBody(1, 763282001)
             ?.length.should.equal(6)
     }
+
+    @Test
+    fun `Create comment`() {
+
+        GitHubManager.createComment(
+            "This is sample comment",
+            29
+        )
+    }
 }

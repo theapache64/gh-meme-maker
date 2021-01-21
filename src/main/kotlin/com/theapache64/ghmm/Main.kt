@@ -72,12 +72,12 @@ fun main(args: Array<String>) {
                         )
 
                         // Creating comment
-                        GitHubManager.createComment(
+                        val isCommentCreated = GitHubManager.createComment(
                             comment,
                             issueNumber
                         )
 
-                        println("Done!")
+                        println("Done! -> $isCommentCreated")
                     } else {
                         error("Failed to upload image to imgUr")
                     }
