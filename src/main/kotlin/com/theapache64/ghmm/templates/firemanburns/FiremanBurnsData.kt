@@ -1,4 +1,4 @@
-package com.theapache64.ghmm.templates.fmburns
+package com.theapache64.ghmm.templates.firemanburns
 
 import kotlinx.serialization.Serializable
 

@@ -1,7 +1,7 @@
 package com.theapache64.ghmm.core
 
 import com.theapache64.ghmm.templates.drake.DrakeMemeTemplate
-import com.theapache64.ghmm.templates.fmburns.FiremanBurnsMemeTemplate
+import com.theapache64.ghmm.templates.firemanburns.FiremanBurnsMemeTemplate
 import com.theapache64.ghmm.templates.mask.MaskMemeTemplate
 
 object TemplateManager {

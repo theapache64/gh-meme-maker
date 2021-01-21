@@ -1,7 +1,6 @@
-package com.theapache64.ghmm.templates.fmburns
+package com.theapache64.ghmm.templates.firemanburns
 
 import com.theapache64.expekt.should
-import com.theapache64.ghmm.templates.drake.DrakeMemeTemplate
 import org.junit.Test
 
 class FiremanBurnsMemeTemplateTest {

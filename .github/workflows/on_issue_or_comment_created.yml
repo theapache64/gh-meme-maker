@@ -18,6 +18,11 @@ jobs:
           fetch-depth: 0
       - name: Generating meme...
         run: |
+          curl \
+            -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/theapache/gh-meme-maker/issues/${{github.event.issue.number}}/comments \
+            -d '{"body":"Roger that 👍. Please wait..."}'
           git config --local user.email "theapache64bot@gmail.com"
           git config --local user.name "theapache64-bot"
           java -jar gh-meme-maker.main.jar --issue-number "${{github.event.issue.number}}" --comment-id "${{github.event.comment.id}}"

@@ -9,12 +9,6 @@ import kotlinx.serialization.json.Json
 import java.lang.Exception
 import kotlin.system.exitProcess
 
-private val requestReceivedReplies = listOf(
-    "Alrightyyy!! Let me generate it...",
-    "Roger that! Hold on please",
-    "Copy that. Hold on a minute"
-)
-
 private const val SIGNATURE = "GjhgJHGJHGjHGjhgjGJ4545JjHGjhgjhg"
 
 fun main(args: Array<String>) {
@@ -43,12 +37,6 @@ fun main(args: Array<String>) {
 
         if (body != null) {
             if (body.contains("```json") && !body.contains(SIGNATURE)) {
-
-                // Sending 'Please wait' message
-                GitHubManager.createComment(
-                    requestReceivedReplies.random(),
-                    issueNumber
-                )
 
                 val bodyJson = parseJsonFromMarkdownIssueBody(body)
                 val bodyModel: BaseData = JsonUtils.json.decodeFromString(bodyJson)

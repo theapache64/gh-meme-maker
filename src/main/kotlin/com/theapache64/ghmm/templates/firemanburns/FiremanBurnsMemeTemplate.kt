@@ -1,4 +1,4 @@
-package com.theapache64.ghmm.templates.fmburns
+package com.theapache64.ghmm.templates.firemanburns
 
 import com.theapache64.ghmm.core.MemeTemplate
 import com.theapache64.ghmm.util.JsonUtils
