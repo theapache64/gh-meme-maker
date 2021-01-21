@@ -27,4 +27,4 @@ font_size = Font size of that text
 <!-- 
 Once you created the issue...
  -->
-*Click the '[Actions](https://github.com/theapache64/gh-meme-maker/actions)' tab to see the kitchen*
+Please wait, we've just started cooking your meme 👨‍🍳. *Click the '[Actions](https://github.com/theapache64/gh-meme-maker/actions)' tab to see the kitchen 🍳 *

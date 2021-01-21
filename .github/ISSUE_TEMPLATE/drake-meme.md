@@ -29,4 +29,4 @@ font_size = Font size (both text_1 and text_2)
 <!-- 
 Once you created the issue...
  -->
-*Click the '[Actions](https://github.com/theapache64/gh-meme-maker/actions)' tab to see the kitchen*
+Please wait, we've just started cooking your meme 👨‍🍳. *Click the '[Actions](https://github.com/theapache64/gh-meme-maker/actions)' tab to see the kitchen 🍳 *
