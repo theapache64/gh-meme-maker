@@ -1,22 +1,22 @@
-package com.theapache64.ghmm.templates
+package com.theapache64.ghmm.templates.fmburns
 
 import com.theapache64.expekt.should
 import com.theapache64.ghmm.templates.drake.DrakeMemeTemplate
 import org.junit.Test
 
+class FiremanBurnsMemeTemplateTest {
 
-class DrakeMemeTemplateTest {
     @Test
-    fun `Generate drake meme`() {
+    fun `Generate fireman burns meme`() {
 
         val inputData = """
                 {
-                  "text_1": "Dagger",
-                  "text_2": "Hilt"
+                  "lady_says": "Fragments are amazing!",
+                  "font_size": 30
                 }
             """.trimIndent()
 
-        val outputFile = DrakeMemeTemplate(true)
+        val outputFile = FiremanBurnsMemeTemplate(true)
             .generate(inputData)
 
         // Checking file existence

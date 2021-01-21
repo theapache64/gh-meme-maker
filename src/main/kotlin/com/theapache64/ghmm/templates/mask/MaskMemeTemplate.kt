@@ -23,7 +23,7 @@ class MaskMemeTemplate(isDebug: Boolean = false) : MemeTemplate<MaskData>(isDebu
     }
 
     override fun getTextCoordinates(data: MaskData): List<Pair<String, Rectangle>> {
-        return mutableListOf(
+        return listOf(
             data.maskText to Rectangle(684, 73, 158, 123),
             data.revealedText to Rectangle(100, 618, 209, 150),
             data.maskText to Rectangle(654, 549, 218, 266)

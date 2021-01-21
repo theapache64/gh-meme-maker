@@ -27,7 +27,7 @@ class DrakeMemeTemplate(
     }
 
     override fun getTextCoordinates(data: DrakeData): List<Pair<String, Rectangle>> {
-        return mutableListOf(
+        return listOf(
             data.text1 to Rectangle(500, 0, 500, 500),
             data.text2 to Rectangle(500, 500, 500, 500)
         )
