@@ -13,10 +13,13 @@ object ImgUr {
         OkHttpClient()
     }
 
+    private val imgUrClientId: String by lazy {
+        System.getenv("IMGUR_CLIENT_ID")
+    }
+
     fun uploadImage(
         imageFile: File
     ): String? {
-        val imgUrClientId = System.getenv("IMGUR_CLIENT_ID")
         val base64Image = Base64.getEncoder().encodeToString(imageFile.readBytes())
 
         val body = MultipartBody.Builder()

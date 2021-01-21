@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName
 
 @Serializable
-data class GithubIssueComment(
+data class GitHubIssueComment(
     @SerialName("body")
     val body: String
 )

@@ -13,7 +13,6 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0"
 
     // JUnit : JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
@@ -21,9 +20,6 @@ dependencies {
 
     // Expekt : An assertion library for Kotlin
     testImplementation 'com.theapache64:expekt:0.0.1'
-
-    // GitHub API For Java : GitHub API for Java
-    implementation 'org.kohsuke:github-api:1.122'
 
     // OkHttp : For networking
     implementation 'com.squareup.okhttp3:okhttp:4.10.0-RC1'
