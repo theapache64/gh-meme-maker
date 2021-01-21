@@ -1,6 +1,6 @@
 ---
 name: Fireman Burns
-about: Hey, why do you always wear that mask?
+about: Worth burning people like this
 title: Fireman Burns Meme
 labels: fireman-burns-meme, meme
 assignees: theapache64-bot
