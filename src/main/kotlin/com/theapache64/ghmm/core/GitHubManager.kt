@@ -78,16 +78,20 @@ object GitHubManager {
     /**
      * To create a new comment in the given issue
      */
-    fun createComment(body: String, issueNumber: Long): Boolean {
+    fun createComment(_body: String, issueNumber: Long): Boolean {
 
+        val body = _body.replace("\n", "\\n")
+            .replace("\"", "\\\"")
         val request = Request.Builder()
             .url("https://api.github.com/repos/$REPO/issues/$issueNumber/comments")
             .addHeader("Accept", "application/vnd.github.v3+json")
             .addHeader("authorization", "token $githubOAuthToken")
-            .method("POST", "{\"body\":\"$body\"}".toRequestBody(jsonMediaType))
+            .method("POST", "{\"body\":\"${body}\"}".toRequestBody(jsonMediaType))
             .build()
 
-        return okHttpClient.newCall(request).execute().code == 200
+        val result = okHttpClient.newCall(request).execute()
+        println(result.body?.string())
+        return result.code == 201
     }
 
 }

@@ -8,7 +8,7 @@ import com.theapache64.ghmm.util.JsonUtils
 import kotlinx.serialization.decodeFromString
 import kotlin.system.exitProcess
 
-private const val SIGNATURE = "GjhgJHGJHGjHGjhgjGJ4545JjHGjhgjhg"
+const val SIGNATURE = "GjhgJHGJHGjHGjhgjGJ4545JjHGjhgjhg"
 
 fun main(args: Array<String>) {
     println("Generating meme : [${args.joinToString(",")}]")
