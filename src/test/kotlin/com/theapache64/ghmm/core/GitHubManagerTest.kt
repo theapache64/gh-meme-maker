@@ -59,4 +59,33 @@ class GitHubManagerTest {
             29
         ).should.`true`
     }
+
+    @Test
+    fun `Create big comment 2`() {
+        val comment = """
+            Here is it ;)
+
+            <img src="https://i.imgur.com/nRzcUnq.jpg" width="300"/>
+
+            Didn't like the output? Don't worry, copy paste below JSON with updated values. I can make a new one.
+            ````json
+            ```json
+            {
+              "template_id": "drake-meme",
+              "text_1": "TEXT_1_GOES_HERE",
+              "text_2": "TEXT_2_GOES_HERE",
+              "font_size": 80
+            }
+            ```
+            ````
+            <!--
+            GjhgJHGJHGjHGjhgjGJ4545JjHGjhgjhg
+            -->
+        """.trimIndent()
+
+        GitHubManager.createComment(
+            comment,
+            31
+        ).should.`true`
+    }
 }

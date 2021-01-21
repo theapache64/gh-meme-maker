@@ -1,8 +1,10 @@
 package com.theapache64.ghmm.core
 
-import com.theapache64.ghmm.model.GitHubIssueComment
+import com.theapache64.ghmm.model.github.CreateIssueCommentBody
+import com.theapache64.ghmm.model.github.IssueComment
 import com.theapache64.ghmm.util.JsonUtils
 import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -54,7 +56,7 @@ object GitHubManager {
 
         val resp = okHttpClient.newCall(request).execute().body?.string()
         if (resp != null) {
-            return JsonUtils.json.decodeFromString<GitHubIssueComment>(resp).body
+            return JsonUtils.json.decodeFromString<IssueComment>(resp).body
         }
         return null
     }
@@ -69,7 +71,7 @@ object GitHubManager {
 
         val jsonResp = okHttpClient.newCall(request).execute().body?.string()
         return if (jsonResp != null) {
-            return JsonUtils.json.decodeFromString<GitHubIssueComment>(jsonResp).body
+            return JsonUtils.json.decodeFromString<IssueComment>(jsonResp).body
         } else {
             null
         }
@@ -80,13 +82,14 @@ object GitHubManager {
      */
     fun createComment(_body: String, issueNumber: Long): Boolean {
 
-        val body = _body.replace("\n", "\\n")
-            .replace("\"", "\\\"")
+
+        val body = JsonUtils.json.encodeToString(CreateIssueCommentBody(_body))
+
         val request = Request.Builder()
             .url("https://api.github.com/repos/$REPO/issues/$issueNumber/comments")
             .addHeader("Accept", "application/vnd.github.v3+json")
             .addHeader("authorization", "token $githubOAuthToken")
-            .method("POST", "{\"body\":\"${body}\"}".toRequestBody(jsonMediaType))
+            .method("POST", body.toRequestBody(jsonMediaType))
             .build()
 
         val result = okHttpClient.newCall(request).execute()
