@@ -18,14 +18,7 @@ Generate memes using GitHub issues
 
 - **SLOW!**
 
-Yes, it is damn f***ing slow. It takes approximately a minute to finish executing the action.
+Yes, it is little slow. It takes approximately 30 seconds to finish executing the action.
 It's because the GitHub action trigger goes through a queuing and ignition process which takes some time to enter the `JAR` execution step. 
 
 *SOLUTION: Can't do anything about it. OR Do you know?*
-
-- **Broken Image!**
-
-After you finish creating your meme request, the resulting image might be unavailable for some time. 
-This is because we host the image in GitHub itself, and GitHub takes some time to host the file.
-
-*SOLUTION: Move image hosting to external file hosting spaces, such as `S3`. OR Do you have any other solution?*
