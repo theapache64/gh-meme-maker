@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    if: ${{ contains(github.event.issue.labels.*.name, 'meme') && github.event.comment.user.login != 'theapache64-bot' && (contains(github.event.comment.body, '```json') || contains(github.event.issue.body, '```json')) }}
+    if: ${{ contains(github.event.issue.labels.*.name, 'meme') && github.event.comment.user.login != 'theapache64-bot' && (contains(github.event.comment.body, '```json') || (contains(github.event.issue.body, '```json') && github.event.comment.body == '')) }}
     runs-on: ubuntu-latest
 
     steps:
