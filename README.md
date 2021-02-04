@@ -1,3 +1,5 @@
+![](cover.jpeg)
+
 # gh-meme-maker 🤡
 
 Generate memes using GitHub issues
