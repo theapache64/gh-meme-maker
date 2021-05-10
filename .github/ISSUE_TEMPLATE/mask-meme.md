@@ -28,5 +28,5 @@ font_size = Font size (both mask_text and revealed_text)
 <!-- 
 Once you created the issue...
  --> 
-Please wait, we've just started cooking your meme 👨‍🍳. *Click the '[Actions](https://github.com/theapache64/gh-meme-maker/actions)' tab to see the kitchen 🍳 *
+Please wait, we started cooking your meme 👨‍🍳. *Click the '[Actions](https://github.com/theapache64/gh-meme-maker/actions)' tab to see the kitchen 🍳 *
  
