@@ -49,7 +49,7 @@ abstract class MemeTemplate<T>(
         val data = decodeJson(jsonStringData)
         val font = fontImpact.deriveFont(Font.PLAIN, getFontSize(data))
         val textData: List<Pair<String, Rectangle>> = getTextCoordinates(data)
-
+        println(textData)
         for ((text, boundary) in textData) {
             draw(canvas, font, text, boundary)
         }
