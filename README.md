@@ -12,7 +12,7 @@ Generate memes using GitHub issues
 | <img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/master/template_images/mask.jpg" height="250"/>    | [Create New](https://github.com/theapache64/gh-meme-maker/issues/new?assignees=theapache64-bot&labels=mask-meme%2C+meme&template=mask-meme.md&title=Mask+Meme)    |
 | <img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/master/template_images/fireman_burns.jpg" height="250"/>    | [Create New](https://github.com/theapache64/gh-meme-maker/issues/new?assignees=theapache64-bot&labels=fireman-burns-meme%2C+meme&template=fireman-burns-meme.md&title=Fireman+Burns+Meme)    |
 | <img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/master/template_images/expanding_brain.jpg" height="250"/>    | [Create New](https://github.com/theapache64/gh-meme-maker/issues/new?assignees=theapache64-bot&labels=expanding-brain-meme%2C+meme&template=expanding-brain-meme.md&title=Expanding+Brain+Meme)    |
-| <img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/master/template_images/running_away_balloon.jpg" height="250"/>    | [Create New](https://github.com/theapache64/gh-meme-maker/issues/new?assignees=theapache64-bot&labels=running-away-balloon-meme%2C+meme&template=running-away-balloon-meme.md.md&title=Running+Away+Balloon+Meme)    |
+| <img src="https://raw.githubusercontent.com/theapache64/gh-meme-maker/master/template_images/running_away_balloon.jpg" height="250"/>    | [Create New](https://github.com/theapache64/gh-meme-maker/issues/new?assignees=theapache64-bot&labels=running-away-balloon-meme%2C+meme&template=running-away-balloon-meme.md&title=Running+Away+Balloon+Meme)    |
 
 ## Want more templates ? 😋
 
