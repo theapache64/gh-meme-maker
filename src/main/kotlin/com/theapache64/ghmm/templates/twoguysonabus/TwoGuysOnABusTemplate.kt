@@ -6,7 +6,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.decodeFromString
 import java.awt.Rectangle
 
-class TwoGuysOnABusTemplate(isDebug: Boolean) : MemeTemplate<TwoGuysOnABusData>(isDebug) {
+class TwoGuysOnABusTemplate(isDebug: Boolean = false) : MemeTemplate<TwoGuysOnABusData>(isDebug) {
     override fun getId(): String = "two-guys-on-a-bus-meme"
 
     override fun getTemplateImageName(): String {

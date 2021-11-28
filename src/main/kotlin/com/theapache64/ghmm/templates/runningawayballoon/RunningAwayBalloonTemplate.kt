@@ -5,7 +5,7 @@ import com.theapache64.ghmm.util.JsonUtils
 import kotlinx.serialization.decodeFromString
 import java.awt.Rectangle
 
-class RunningAwayBalloonTemplate(isDebug: Boolean = true) : MemeTemplate<RunningAwayBalloonData>(isDebug) {
+class RunningAwayBalloonTemplate(isDebug: Boolean = false) : MemeTemplate<RunningAwayBalloonData>(isDebug) {
     override fun getId(): String {
         return "running-away-balloon-meme"
     }
