@@ -14,10 +14,12 @@ abstract class MemeTemplate<T>(
         val fontImpact: Font by lazy {
             Font.createFont(Font.TRUETYPE_FONT, File("impact.ttf"))
         }
+        val TRANSPARENT: Color = Color.decode("#00000000")!!
     }
 
     abstract fun getId(): String
     abstract fun getTemplateImageName(): String
+    open fun isNeedDynamicTextBgColor() = false
 
     fun generate(jsonStringData: String): File {
 
@@ -57,9 +59,11 @@ abstract class MemeTemplate<T>(
 
     abstract fun getFontSize(data: T): Float
     private fun draw(canvas: Graphics2D, font: Font, text1: String, text1Bounds: Rectangle) {
+        val textBgColor = if (isNeedDynamicTextBgColor()) Color.WHITE else TRANSPARENT
         TextRenderer.drawString(
             canvas,
             text1,
+            textBgColor,
             font,
             Color.decode("#121212"),
             text1Bounds,

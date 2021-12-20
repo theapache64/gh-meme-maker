@@ -1,5 +1,6 @@
 package com.theapache64.ghmm.util.text
 
+import com.theapache64.ghmm.core.MemeTemplate
 import com.theapache64.ghmm.util.text.TextFormat.isEnabled
 import java.awt.*
 import java.awt.font.FontRenderContext
@@ -15,7 +16,8 @@ object TextRenderer {
     @JvmOverloads
     fun drawString(
         g: Graphics,
-        text: String,
+        _text: String,
+        textBgColor: Color,
         font: Font,
         color: Color,
         bounds: Rectangle,
@@ -23,13 +25,19 @@ object TextRenderer {
         format: Int = TextFormat.NONE
     ): Rectangle {
 
-        if (text.isEmpty()) {
+        if (_text.isEmpty()) {
             return Rectangle(bounds.x, bounds.y, 0, 0)
+        }
+        val text = if (textBgColor == MemeTemplate.TRANSPARENT) {
+            _text
+        } else {
+            "        $_text      "
         }
 
         val g2D = g as Graphics2D
         val attributedString = AttributedString(text).apply {
             addAttribute(TextAttribute.FOREGROUND, color)
+            addAttribute(TextAttribute.BACKGROUND, textBgColor)
             addAttribute(TextAttribute.FONT, font)
         }
         val attributedCharIterator = attributedString.iterator
@@ -41,7 +49,7 @@ object TextRenderer {
             if (align.isMiddle) targetLocation.y = bounds.y + bounds.height / 2
             if (align.isBottom) targetLocation.y = bounds.y + bounds.height
             while (lineMeasurer.position < text.length) {
-                nextOffset = lineMeasurer.nextOffset(bounds.width.toFloat())
+                nextOffset = lineMeasurer.nextOffset(bounds.width.toFloat() + 100)
                 nextOffset = nextTextIndex(nextOffset, lineMeasurer.position, text)
                 val textLayout = lineMeasurer.nextLayout(bounds.width.toFloat(), nextOffset, false)
                 if (align.isMiddle) {

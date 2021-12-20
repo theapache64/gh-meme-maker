@@ -22,6 +22,10 @@ class TwoGuysOnABusTemplate(isDebug: Boolean = false) : MemeTemplate<TwoGuysOnAB
         return JsonUtils.json.decodeFromString(jsonStringData)
     }
 
+    override fun isNeedDynamicTextBgColor(): Boolean {
+        return true
+    }
+
     override fun getTextCoordinates(data: TwoGuysOnABusData): List<Pair<String, Rectangle>> {
         return listOf(
             data.sadGuy to Rectangle(103, 375, 275, 157),

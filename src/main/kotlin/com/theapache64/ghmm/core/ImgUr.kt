@@ -31,12 +31,14 @@ object ImgUr {
             .build()
 
         val request = Request.Builder()
-            .url("https://api.imgur.com/3/upload")
+            .url("https://api.imgur.com/3/image")
             .addHeader("Authorization", "Client-ID: $imgUrClientId")
             .post(body)
             .build()
 
-        val result = okHttpClient.newCall(request).execute()
+        val result = okHttpClient.newCall(request).execute().also {
+            println("ErrorCode: ${it.code}")
+        }
         if (result.code == 200) {
             val responseJson = result.body?.string()
             if (responseJson != null) {
