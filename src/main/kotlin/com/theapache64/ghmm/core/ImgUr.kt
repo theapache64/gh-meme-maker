@@ -32,7 +32,7 @@ object ImgUr {
 
         val request = Request.Builder()
             .url("https://api.imgur.com/3/image")
-            .addHeader("Authorization", "Client-ID: $imgUrClientId")
+            .addHeader("Authorization", "Client-ID $imgUrClientId")
             .post(body)
             .build()
 
