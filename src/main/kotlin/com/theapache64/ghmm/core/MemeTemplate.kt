@@ -59,7 +59,7 @@ abstract class MemeTemplate<T>(
 
     abstract fun getFontSize(data: T): Float
     private fun draw(canvas: Graphics2D, font: Font, text1: String, text1Bounds: Rectangle) {
-        val textBgColor = if (isNeedDynamicTextBgColor()) Color.WHITE else TRANSPARENT
+        val textBgColor = if (isNeedDynamicTextBgColor()) Color.WHITE else null
         TextRenderer.drawString(
             canvas,
             text1,

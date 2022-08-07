@@ -1,6 +1,5 @@
 package com.theapache64.ghmm.util.text
 
-import com.theapache64.ghmm.core.MemeTemplate
 import com.theapache64.ghmm.util.text.TextFormat.isEnabled
 import java.awt.*
 import java.awt.font.FontRenderContext
@@ -17,7 +16,7 @@ object TextRenderer {
     fun drawString(
         g: Graphics,
         _text: String,
-        textBgColor: Color,
+        textBgColor: Color?,
         font: Font,
         color: Color,
         bounds: Rectangle,
@@ -28,7 +27,7 @@ object TextRenderer {
         if (_text.isEmpty()) {
             return Rectangle(bounds.x, bounds.y, 0, 0)
         }
-        val text = if (textBgColor == MemeTemplate.TRANSPARENT) {
+        val text = if (textBgColor == null) {
             _text
         } else {
             "        $_text      "
@@ -37,7 +36,9 @@ object TextRenderer {
         val g2D = g as Graphics2D
         val attributedString = AttributedString(text).apply {
             addAttribute(TextAttribute.FOREGROUND, color)
-            addAttribute(TextAttribute.BACKGROUND, textBgColor)
+            if (textBgColor != null) {
+                addAttribute(TextAttribute.BACKGROUND, textBgColor)
+            }
             addAttribute(TextAttribute.FONT, font)
         }
         val attributedCharIterator = attributedString.iterator
